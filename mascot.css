@@ -1,0 +1,346 @@
+/* =========================================================
+   Far & Few — shared mascot styles
+   Used by BOTH index.html and destination.html because the
+   mascot guide and wandering dog run site-wide (script.js
+   appends them to <body> on every page).
+   ========================================================= */
+
+/* =========================================================
+   PIXELATED MASCOT GUIDE
+   ========================================================= */
+.mascot-guide {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 500;
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+  pointer-events: none;
+}
+.mascot-character {
+  position: relative;
+  pointer-events: auto;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  filter: drop-shadow(0 4px 6px rgba(28,43,34,0.25));
+  animation: mascot-idle 3s ease-in-out infinite;
+  transition: transform 0.2s ease;
+}
+.mascot-character:hover { transform: translateY(-3px) scale(1.04); }
+.mascot-character:active { transform: translateY(0) scale(0.98); }
+.mascot-character.is-blinking svg .mascot-eye {
+  opacity: 0;
+}
+@keyframes mascot-idle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.mascot-bubble {
+  position: relative;
+  pointer-events: auto;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: 10px;
+  padding: 0.7rem 2rem 0.7rem 0.95rem;
+  max-width: 220px;
+  box-shadow: 0 6px 18px rgba(28,43,34,0.18);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: var(--ink);
+  margin-bottom: 0.8rem;
+  opacity: 0;
+  transform: translateY(8px) scale(0.92);
+  transform-origin: bottom right;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+.mascot-bubble.is-open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+.mascot-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  right: 18px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid var(--ink);
+}
+.mascot-bubble::before {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  right: 20px;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid var(--paper);
+  z-index: 1;
+}
+.mascot-bubble-text {
+  display: inline-block;
+  transition: opacity 0.2s ease;
+}
+.mascot-bubble-close {
+  position: absolute;
+  top: 2px;
+  right: 4px;
+  width: 18px;
+  height: 18px;
+  border: none;
+  background: none;
+  color: #5b6b60;
+  font-size: 0.95rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+  border-radius: 3px;
+  transition: color 0.2s, background 0.2s;
+}
+.mascot-bubble-close:hover {
+  color: var(--clay);
+  background: rgba(200,98,58,0.08);
+}
+
+/* =========================================================
+   WANDERING DOG — miniature pixelated dog that roams the page
+   ========================================================= */
+.wandering-dog {
+  position: fixed;
+  z-index: 550;
+  width: 60px;
+  height: 50px;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+  pointer-events: auto;
+  transition: filter 0.2s ease;
+}
+.wandering-dog:hover {
+  filter: drop-shadow(0 0 8px rgba(200, 98, 58, 0.45));
+}
+.wandering-dog:focus-visible {
+  outline: 2px dashed var(--clay);
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+.wandering-dog.is-grabbed { cursor: grabbing; }
+.wandering-dog.is-dragging {
+  cursor: grabbing;
+  filter: drop-shadow(0 8px 12px rgba(28,43,34,0.35));
+}
+
+/* Ground shadow */
+.dog-shadow {
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36px;
+  height: 6px;
+  background: radial-gradient(ellipse at center, rgba(28,43,34,0.35) 0%, rgba(28,43,34,0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+.is-dragging .dog-shadow {
+  width: 24px;
+  opacity: 0.5;
+}
+
+/* Sprite wrapper — handles flipping & hop */
+.dog-sprite {
+  position: relative;
+  width: 60px;
+  height: 42px;
+  z-index: 1;
+  transition: transform 0.15s ease;
+}
+.wandering-dog.faces-left .dog-sprite {
+  transform: scaleX(-1);
+}
+.wandering-dog.is-petting .dog-sprite {
+  animation: dog-hop 0.5s cubic-bezier(0.3, 0.7, 0.4, 1);
+}
+@keyframes dog-hop {
+  0%   { transform: translateY(0) scaleY(1); }
+  20%  { transform: translateY(2px) scaleY(0.92); }
+  50%  { transform: translateY(-14px) scaleY(1.05); }
+  80%  { transform: translateY(-4px) scaleY(1); }
+  100% { transform: translateY(0) scaleY(1); }
+}
+.wandering-dog.faces-left.is-petting .dog-sprite {
+  animation: dog-hop-left 0.5s cubic-bezier(0.3, 0.7, 0.4, 1);
+}
+@keyframes dog-hop-left {
+  0%   { transform: scaleX(-1) translateY(0) scaleY(1); }
+  20%  { transform: scaleX(-1) translateY(2px) scaleY(0.92); }
+  50%  { transform: scaleX(-1) translateY(-14px) scaleY(1.05); }
+  80%  { transform: scaleX(-1) translateY(-4px) scaleY(1); }
+  100% { transform: scaleX(-1) translateY(0) scaleY(1); }
+}
+
+/* Walking: gentle body bob + leg swing */
+.wandering-dog.is-walking .dog-sprite {
+  animation: dog-walk-bob 0.45s ease-in-out infinite;
+}
+@keyframes dog-walk-bob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-2px); }
+}
+.wandering-dog.faces-left.is-walking .dog-sprite {
+  animation: dog-walk-bob-left 0.45s ease-in-out infinite;
+}
+@keyframes dog-walk-bob-left {
+  0%, 100% { transform: scaleX(-1) translateY(0); }
+  50%      { transform: scaleX(-1) translateY(-2px); }
+}
+.wandering-dog.is-walking .dog-leg-fl,
+.wandering-dog.is-walking .dog-leg-br {
+  animation: dog-leg-a 0.45s ease-in-out infinite;
+}
+.wandering-dog.is-walking .dog-leg-fr,
+.wandering-dog.is-walking .dog-leg-bl {
+  animation: dog-leg-b 0.45s ease-in-out infinite;
+}
+@keyframes dog-leg-a {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-1px); }
+}
+@keyframes dog-leg-b {
+  0%, 100% { transform: translateY(-1px); }
+  50%      { transform: translateY(0); }
+}
+
+/* Sitting: tail wag + idle ear twitch */
+.wandering-dog.is-sitting .dog-tail {
+  transform-origin: 2px 7px;
+  animation: dog-tail-wag 0.7s ease-in-out infinite;
+}
+@keyframes dog-tail-wag {
+  0%, 100% { transform: rotate(-12deg); }
+  50%      { transform: rotate(18deg); }
+}
+.wandering-dog.is-sitting .dog-ear {
+  animation: dog-ear-twitch 4s ease-in-out infinite;
+}
+@keyframes dog-ear-twitch {
+  0%, 88%, 100% { transform: translateY(0); }
+  92%           { transform: translateY(-1px); }
+  96%           { transform: translateY(0); }
+}
+
+/* Blinking: eyes collapse to a thin line */
+.wandering-dog.is-blinking .dog-eye {
+  transform: scaleY(0.1);
+  transform-origin: center;
+}
+
+/* Bark speech bubble */
+.dog-bark {
+  position: absolute;
+  top: -28px;
+  left: 50%;
+  transform: translateX(-50%) translateY(6px) scale(0.8);
+  background: var(--paper);
+  color: var(--ink);
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  padding: 0.2rem 0.7rem;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 0.85rem;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  box-shadow: 0 3px 10px rgba(28,43,34,0.18);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.dog-bark.is-show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0) scale(1);
+}
+.dog-bark::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid var(--ink);
+}
+.dog-bark::before {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid var(--paper);
+  z-index: 1;
+}
+
+/* Heart particles */
+.dog-particle-layer {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+  z-index: 2;
+}
+.dog-heart {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 1rem;
+  color: var(--clay);
+  text-shadow: 0 1px 2px rgba(200,98,58,0.4);
+  animation: heart-float 1.5s ease-out forwards;
+  animation-delay: var(--hd, 0ms);
+  opacity: 0;
+  will-change: transform, opacity;
+}
+@keyframes heart-float {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(0deg) scale(0.4);
+  }
+  15% {
+    opacity: 1;
+    transform: translate(calc(var(--hx) * 0.4), -10px) rotate(calc(var(--hr) * 0.5)) scale(1.1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--hx), -55px) rotate(var(--hr)) scale(0.9);
+  }
+}
+
+/* On touch devices: keep pointer events but disable hover scale */
+@media (hover: none) {
+  .wandering-dog:hover { filter: none; }
+}
+
+/* Print: hide the dog */
+@media print {
+  .wandering-dog { display: none !important; }
+}
