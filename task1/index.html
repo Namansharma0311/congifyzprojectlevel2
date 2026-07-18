@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Far & Few — Travel Destination Explorer</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">Far<span class="brand-dot">&amp;</span>Few</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link active" href="#destinations">Destinations</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">Why Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="#footer">Contact</a></li>
+        <li class="nav-item"><a class="btn btn-outline-light btn-sm ms-lg-3" href="#destinations">Start Planning</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="hero d-flex align-items-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <p class="eyebrow"><i class="bi bi-compass"></i> Issue No. 14 — Far-flung &amp; close to home</p>
+        <h1 class="hero-title">Go where the<br>map runs out of<br>familiar names.</h1>
+        <p class="hero-sub">Eleven destinations, hand-picked by people who've actually slept in the rooms and eaten at the stalls. No filler, no influencer bait — just where to go and why.</p>
+        <a href="#destinations" class="btn btn-light btn-lg mt-2">Browse Destinations <i class="bi bi-arrow-down-short"></i></a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Destinations -->
+<main class="container" id="destinations">
+  <div class="section-head">
+    <h2>The Shortlist</h2>
+    <p>Sorted by nothing in particular — pick by mood, not rank.</p>
+  </div>
+
+  <div class="row g-4">
+
+    <!-- Card template repeated -->
+    <div class="col-12 col-md-6 col-lg-3">
+      <div class="card dest-card h-100">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1505761671935-60b3a7427bad?w=600&q=80" class="card-img-top" alt="Kyoto, Japan">
+          <span class="badge price-badge">from $1,240</span>
+        </div>
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-start">
+            <div>
+              <h5 class="card-title mb-0">Kyoto</h5>
+              <p class="card-country"><i class="bi bi-geo-alt"></i> Japan</p>
+            </div>
+            <span class="rating"><i class="bi bi-star-fill"></i> 4.9</span>
+          </div>
+          <p class="card-text">Temple bells at dawn, vending-machine ramen at midnight, and a thousand torii gates in between.</p>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-dest w-100">View Trip <i class="bi bi-arrow-up-right"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-3">
+      <div class="card dest-card h-100">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=600&q=80" class="card-img-top" alt="Lofoten, Norway">
+          <span class="badge price-badge">from $1,890</span>
+        </div>
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-start">
+            <div>
+              <h5 class="card-title mb-0">Lofoten</h5>
+              <p class="card-country"><i class="bi bi-geo-alt"></i> Norway</p>
+            </div>
+            <span class="rating"><i class="bi bi-star-fill"></i> 4.8</span>
+          </div>
+          <p class="card-text">Jagged peaks dropping straight into fjords, red fishing huts, and aurora odds that actually favor you.</p>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-dest w-100">View Trip <i class="bi bi-arrow-up-right"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-3">
+      <div class="card dest-card h-100">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=600&q=80" class="card-img-top" alt="Marrakech, Morocco">
+          <span class="badge price-badge">from $980</span>
+        </div>
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-start">
+            <div>
+              <h5 class="card-title mb-0">Marrakech</h5>
+              <p class="card-country"><i class="bi bi-geo-alt"></i> Morocco</p>
+            </div>
+            <span class="rating"><i class="bi bi-star-fill"></i> 4.7</span>
+          </div>
+          <p class="card-text">Souks that swallow your sense of direction, mint tea poured from a height, rooftop calls to prayer.</p>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-dest w-100">View Trip <i class="bi bi-arrow-up-right"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-3">
+      <div class="card dest-card h-100">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1526392060635-9d6019884377?w=600&q=80" class="card-img-top" alt="Patagonia, Chile">
+          <span class="badge price-badge">from $2,150</span>
+        </div>
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-start">
+            <div>
+              <h5 class="card-title mb-0">Patagonia</h5>
+              <p class="card-country"><i class="bi bi-geo-alt"></i> Chile</p>
+            </div>
+            <span class="rating"><i class="bi bi-star-fill"></i> 4.9</span>
+          </div>
+          <p class="card-text">Granite towers, glacial lakes the color of bottle glass, and wind that means business.</p>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-dest w-100">View Trip <i class="bi bi-arrow-up-right"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-3">
+      <div class="card dest-card h-100">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=600&q=80" class="card-img-top" alt="Hoi An, Vietnam">
+          <span class="badge price-badge">from $760</span>
+        </div>
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-start">
+            <div>
+              <h5 class="card-title mb-0">Hoi An</h5>
+              <p class="card-country"><i class="bi bi-geo-alt"></i> Vietnam</p>
+            </div>
+            <span class="rating"><i class="bi bi-star-fill"></i> 4.8</span>
+          </div>
+          <p class="card-text">Paper lanterns over the river at dusk, tailors who finish overnight, banh mi worth the flight alone.</p>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-dest w-100">View Trip <i class="bi bi-arrow-up-right"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-3">
+      <div class="card dest-card h-100">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1533104816931-20fa691ff6ca?w=600&q=80" class="card-img-top" alt="Santorini, Greece">
+          <span class="badge price-badge">from $1,420</span>
+        </div>
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-start">
+            <div>
+              <h5 class="card-title mb-0">Santorini</h5>
+              <p class="card-country"><i class="bi bi-geo-alt"></i> Greece</p>
+            </div>
+            <span class="rating"><i class="bi bi-star-fill"></i> 4.6</span>
+          </div>
+          <p class="card-text">Whitewash and caldera views everyone's seen — go anyway, then walk twenty minutes past the crowd.</p>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-dest w-100">View Trip <i class="bi bi-arrow-up-right"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-3">
+      <div class="card dest-card h-100">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=600&q=80" class="card-img-top" alt="Reykjavik, Iceland">
+          <span class="badge price-badge">from $1,340</span>
+        </div>
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-start">
+            <div>
+              <h5 class="card-title mb-0">Reykjavik</h5>
+              <p class="card-country"><i class="bi bi-geo-alt"></i> Iceland</p>
+            </div>
+            <span class="rating"><i class="bi bi-star-fill"></i> 4.7</span>
+          </div>
+          <p class="card-text">Geothermal pools in the snow, waterfalls every other mile, and daylight that won't quit in summer.</p>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-dest w-100">View Trip <i class="bi bi-arrow-up-right"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-3">
+      <div class="card dest-card h-100">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1512813195386-6cf811ad3542?w=600&q=80" class="card-img-top" alt="Oaxaca, Mexico">
+          <span class="badge price-badge">from $690</span>
+        </div>
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-start">
+            <div>
+              <h5 class="card-title mb-0">Oaxaca</h5>
+              <p class="card-country"><i class="bi bi-geo-alt"></i> Mexico</p>
+            </div>
+            <span class="rating"><i class="bi bi-star-fill"></i> 4.9</span>
+          </div>
+          <p class="card-text">Mole sauces with twenty ingredients, mezcal poured by the person who distilled it, market color everywhere.</p>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-dest w-100">View Trip <i class="bi bi-arrow-up-right"></i></button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- About strip -->
+<section class="about-strip" id="about">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-12 col-md-4">
+        <i class="bi bi-pencil-square"></i>
+        <h6>Written, not scraped</h6>
+        <p>Every description above is written by someone who went. We skip the spots we can't vouch for.</p>
+      </div>
+      <div class="col-12 col-md-4">
+        <i class="bi bi-tag"></i>
+        <h6>Real starting prices</h6>
+        <p>Flights + 4 nights, economy, shoulder season. Your dates will move the number — we just won't surprise you.</p>
+      </div>
+      <div class="col-12 col-md-4">
+        <i class="bi bi-arrow-repeat"></i>
+        <h6>Refreshed quarterly</h6>
+        <p>Destinations rotate out when they get overrun. New ones rotate in when we find something worth the detour.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer id="footer">
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-12 col-md-4">
+        <h5 class="footer-brand">Far<span class="brand-dot">&amp;</span>Few</h5>
+        <p>A small, opinionated guide to the places worth the jet lag.</p>
+      </div>
+      <div class="col-6 col-md-2">
+        <h6>Explore</h6>
+        <ul class="list-unstyled footer-links">
+          <li><a href="#destinations">Destinations</a></li>
+          <li><a href="#about">Why Us</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md-2">
+        <h6>Company</h6>
+        <ul class="list-unstyled footer-links">
+          <li><a href="#">About</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </div>
+      <div class="col-12 col-md-4">
+        <h6>Follow along</h6>
+        <div class="social-icons">
+          <a href="#"><i class="bi bi-instagram"></i></a>
+          <a href="#"><i class="bi bi-twitter-x"></i></a>
+          <a href="#"><i class="bi bi-pinterest"></i></a>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <p class="copyright">&copy; 2026 Far &amp; Few. All wanderings reserved.</p>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
